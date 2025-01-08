@@ -1,6 +1,7 @@
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 import mongoose from "mongoose";
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
+
 
 const userSchema = new mongoose.Schema({
   fullname: {
@@ -28,7 +29,6 @@ const userSchema = new mongoose.Schema({
   },
   socketId: {
     type: String,
-    required: true,
   },
 });
 

@@ -76,10 +76,7 @@ Example:
       "message": "An unexpected error occurred"
     }
     ```
-```
 
-
-```
 ### POST `/user/login` Endpoint
 
 #### Description
@@ -145,6 +142,99 @@ Example:
     ```json
     {
       "message": "Invalid Email or Password"
+    }
+    ```
+
+- **500 Internal Server Error**
+  - **Description**: An error occurred on the server.
+  - **Body**: A JSON object containing the error message.
+  - **Example**:
+    ```json
+    {
+      "message": "An unexpected error occurred"
+    }
+    ```
+
+### GET `/user/profile` Endpoint
+
+#### Description
+This endpoint is used to get the profile of the authenticated user.
+
+### HTTP METHOD 
+`GET`
+
+#### Headers
+- `Authorization`: A string containing the Bearer token.
+
+#### Responses
+
+- **200 OK**
+  - **Description**: User profile retrieved successfully.
+  - **Body**: A JSON object containing the user details.
+  - **Example**:
+    ```json
+    {
+      "user": {
+        "_id": "60d0fe4f5311236168a109ca",
+        "fullname": {
+          "firstname": "John",
+          "lastname": "Doe"
+        },
+        "email": "john.doe@example.com"
+      }
+    }
+    ```
+
+- **401 Unauthorized**
+  - **Description**: Authentication token is missing or invalid.
+  - **Body**: A JSON object containing the error message.
+  - **Example**:
+    ```json
+    {
+      "message": "Authentication required"
+    }
+    ```
+
+- **500 Internal Server Error**
+  - **Description**: An error occurred on the server.
+  - **Body**: A JSON object containing the error message.
+  - **Example**:
+    ```json
+    {
+      "message": "An unexpected error occurred"
+    }
+    ```
+
+### GET `/user/logout` Endpoint
+
+#### Description
+This endpoint is used to log out the authenticated user.
+
+### HTTP METHOD 
+`GET`
+
+#### Headers
+- `Authorization`: A string containing the Bearer token.
+
+#### Responses
+
+- **200 OK**
+  - **Description**: User logged out successfully.
+  - **Body**: A JSON object containing a success message.
+  - **Example**:
+    ```json
+    {
+      "message": "Logged out successfully"
+    }
+    ```
+
+- **401 Unauthorized**
+  - **Description**: Authentication token is missing or invalid.
+  - **Body**: A JSON object containing the error message.
+  - **Example**:
+    ```json
+    {
+      "message": "Authentication required"
     }
     ```
 
